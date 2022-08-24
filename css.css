@@ -1,0 +1,217 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: consolas;
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #333;
+    margin: 40px auto;
+}
+
+.container {
+    position: relative;
+    min-width: 300px;
+    min-height: 400px;
+    background-color: #333;
+    padding: 40px 30px 30px;
+    box-shadow: 25px 25px 75px rgba(0,0,0,0.25),
+    10px 10px 70px rgba(0,0,0,0.25),
+    inset -5px -5px 15px  rgba(0,0,0,0.5) ,
+    inset 5px 5px 15px rgba(0,0,0,0.5) ;
+}
+
+.calculate{
+    position: relative;
+    display: grid;
+    gap: 10px;
+}
+
+.calculate .value {
+    position: relative;
+    grid-column: span 4;
+    height: 100px;
+    left: 10px;
+    width: calc(100% - 30px);
+    border: none;
+    outline: none;
+    background-color: #a7af7c;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px rgb(0, 0, 0 ,0.75);
+    text-align: right;
+    padding: 10px;
+    font-size: 2em;
+}
+
+.calculate span , .clear{
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(180deg ,#2f2f2f , #3f3f3f );
+    box-shadow: inset -8px 0 8px rgb(0, 0, 0 ,0.15),
+    inset 0 -8px 8px rgb(0, 0, 0 ,0.25), 
+    0 0 0 2px rgb(0, 0, 0 ,0.75),
+    10px 20px 25px rgb(0, 0, 0 ,0.4) ;
+    color: #fff;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 400;
+    border-radius: 10px;
+}
+
+.calculate span::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    bottom: 14px;
+    right: 12px;
+    border-radius: 10px;
+    background: linear-gradient(90deg ,#2d2d2d , #4d4d4d );
+    box-shadow: -5px -5px 15px rgb(0, 0, 0 ,0.1) ,
+    10px 5px 10px rgb(0, 0, 0 ,0.15 ) ;
+    border-left: 1px solid #0004;
+    border-bottom: 1px solid #0004;
+    border-top: 1px solid #0004;
+}
+
+.calculate span:active , .clear{
+    filter: brightness(1.5);
+}
+
+.calculate span i {
+    position: relative;
+    font-style: normal;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+body.light .calculate span i{
+    color: #333;
+}
+body.light .calculate span.clear i ,
+body.light .calculate span.equal i {
+    color: #fff;
+}
+
+body.light .calculate .clear ,
+.calculate .clear {
+    grid-column: span 2;
+    width: 180px;
+    background: #f00;
+}
+body.light .calculate .clear::before ,
+.calculate .clear::before{
+    background: linear-gradient(90deg , #d20000 , #ffffff5c );
+    border-left: 1px solid #fff4;
+    border-bottom: 1px solid #fff4;
+    border-top: 1px solid #fff4;
+}
+
+.calculate .plus {
+    grid-row: span 2;
+    height: 170px;
+}
+
+body.light .calculate .equal ,
+.calculate .equal{
+    background: #2196f3;
+}
+
+body.light .calculate .equal::before ,
+.calculate .equal::before {
+    background: linear-gradient(90deg , #1479c9 , #ffffff5c);
+    border-left: 1px solid #fff4;
+    border-bottom: 1px solid #fff4;
+    border-top: 1px solid #fff4;
+}
+
+.btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 50px;
+    font-size: 1.5em;
+    background: #333;
+    box-shadow: 5px 5px 15px rgb(0 ,0, 0, 0.25 ) ,
+    5px 5px 30px rgb(0 ,0, 0, 0.25 ) ,
+    inset -2px -2px 5px rgb(0 ,0, 0, 0.25 ) ,
+    2px 2px 5px rgb(0 ,0, 0, 0.25 ) ;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.btn strong {
+    display: none;
+}
+
+/* .btn .sun{
+    display: none;
+} */
+.btn strong:nth-child(2){
+    display: block;
+}
+
+
+body.light .btn strong:nth-child(1){
+    display: block;
+}
+body.light .btn strong:nth-child(2){
+    display: none;
+}
+/* 
+.btn .moon {
+    display: block;
+} */
+body.light {
+    background: #f8f8f8;
+}
+
+body.light .btn {
+    background: #f8f8f8;
+    box-shadow: 5px 5px 15px rgb(0 ,0, 0, 0.1 ) ,
+    5px 5px 30px rgb(0 ,0, 0, 0.5 ) ,
+    inset -2px -2px 5px rgb(0 ,0, 0, 0.1 ) ,
+    2px 2px 5px rgb(0 ,0, 0, 0.5 ) ;
+}
+
+body.light .container{
+    background: #f8f8f8;
+    box-shadow: 25px 25px 75px rgb(0 ,0, 0, 0.15 ) ,
+    10px 10px 70px rgb(0 ,0, 0, 0.15 ) ,
+    inset -5px -5px 15px rgb(0 ,0, 0, 0.15 ) ,
+    5px 5px 15px rgb(0 ,0, 0, 0.5 ) ;
+}
+body.light .calculate span {
+    background: linear-gradient(180deg , #fafafa , #f4f4f4);
+    box-shadow: inset -8px 0px 8px rgb(0 ,0, 0, 0.15 ) ,
+    inset 0px -8px 8px rgb(0 ,0, 0, 0.15 ) ,
+    0 0 0 2px rgb(0 ,0, 0, 0.1 ) ,
+    10px 20px 25px rgb(0 ,0, 0, 0.25 ) ;
+}
+body.light .calculate span::before{
+    background: linear-gradient(90deg , #e6e6e6 , #efefef);
+    border-radius: 10px;
+    box-shadow: -10px -10px 10px rgb(255 ,255, 255, 025 ) ,
+    10px 5px 10px rgb(0 ,0, 0, 0.15 ) ;
+    border-left: 1px solid #fff4;
+    border-bottom: 1px solid #fff4;
+    border-top: 1px solid #fff9;
+}
+
+body.light .calculate span:active{
+    filter: brightness(0.9) ;
+}
+ 
